@@ -1,4 +1,4 @@
-var user = prompt("Disguised as a farmer on his way to Market, two guards stop you and demand to know your destination. You want to get to the Castle to save the princess. You can try going directly to the Castle, but the guards probably won't let you. If you're not ready yet, you can go back home Home. Give them your answer.").toUpperCase();
+var user = prompt("Disguised as a farmer on his way to Market, two guards stop you and demand to know your destination. You must get to the Castle to save the princess. If you're not ready yet, you can retreat back to your Home. Give them your answer.").toUpperCase();
 
 switch(user) {
     case 'MARKET':
