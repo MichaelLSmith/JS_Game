@@ -1,4 +1,12 @@
-#mainCanvas {
-	border: 1px solid #000000;
+body {
+	background-color: black;
+	color: white;
 }
 
+#console {
+	display: none;
+}
+
+#command_line {
+	/*background-color: black;*/
+}
