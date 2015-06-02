@@ -10,12 +10,34 @@
 <body>
 
 <div id="console">
-	<p id="message_startgame">Welcome to my game! you must type commands to get through it.</p>
+	<p>Welcome to the game! Type "Help" at any time for a list of commands. Type Location or Look Around to get more information about where you are.</p>
 
-	<p id="area_northcorridor">You are in the north corridor. There is a sword on the ground</p>
+	<p>Lord Konniving kidnapped your bethrothed and you must save her (turn into gender variable). You disguise yourself as a farmer on your way to Market.When you reach the city checkpoint, two city guards stop you and demand to know your destination.</p>
 
-	<p id="message_help" style="display:none;">Here is a list of commands:</p>
+	<div id="checkpoint_first">
+	<p>You want to get to the Castle to save the princess. You can try going directly to the Castle, but the guards probably won't let you. If you're not ready yet, you can go back home Home. Give them your answer.</p>
 
+	<p>You can go to the Castle, the Market or back Home, if you're not ready to proceed.</p>
+
+	
+
+	<p id="checkpoint" style="display:none;">You are back at the Checkpoint. The two Guards demand to know your destination. Choose to go to either The Castle, The Market or back Home, if you're not ready to proceed.</p>
+	<!-- turn this into a if statement to come up whenever you chose to go to the checkpoint-->	
+
+	<div id="message_help" style="display:none;"> 
+
+	<p>Enter the following Commands. Type the word or phrase in quotes:</p>
+		<ul>
+			<li>"Look Around"</li>
+			<li>"Go to" ex: Go to Castle or Go Home</li>
+			<!-- <li>"Go West", "Go East", "Go North" or "Go South"</li> -->
+			<li>"Take" an item</li>
+			<li>"Search"</li>
+			<li>"Inventory" list of what you're carrying.</li>
+		</ul>
+
+	</div>
+</div><!-- end console div -->
 	<!--
 	PLACEHOLDER: THIS IS WHERE EVERYTHING WILL BE INSERTED ABOVE
 	-->

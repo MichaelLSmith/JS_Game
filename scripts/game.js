@@ -1,89 +1,121 @@
 // Beento Variables
-beenToCorridor = true;
+beenToCheckPoint = true;
+beenToCastle = false;
+beenToMarket = false;
+beenToHome = false;
+
+
 //
 
 // Item Variables
 sword = false;
 //
 
+/* Locations
+The checkpoint = first time you are at the checkpoint with two Guards.
+checkPoint = other times you arrive at the checkpoint.
+Home
+The Castle
+The Market
+
+*/
+
 //Current location
-currentLocation = "forest";
+currentLocation = "The checkpoint";
 //
 
+
+	
+	
+
+//Start of main Script
+
 $(document).ready(function(){
-
 	$("#console").fadeIn(2000);
-
 	$("form").submit(function() {
-		var input = $("#command_line").val();
-		console.log('input:' + input)
-		console.log('Current Location:' + currentLocation)
+		var input = $("#command_line").val().toUpperCase();
+		console.log('input:' + input);
+		console.log('Current Location:' + currentLocation);
 
+	//Functions
+
+		//default repsonse
+	  	notKnown = function() {
+				$("<p>I do not understand " + "'" + input + "'" + ".</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+		}
+		//
+
+		//resets text box (not working???)
+		resetTextBox = function(){
+		$("#command_line").val("");
+		}
+	//
+
+	//
+		switch(input){
+		case 'HELP':
+			$("#message_help").clone().insertBefore("#placeholder").fadeIn(2000);		
+		break;
+		}
+
+		resetTextBox();
+
+	if(input != 'HELP'){	
 		//begin switch for input variable
+		switch(input) {
+			
 
-		// switch(input) {
-		
-		//     case 'HELP':
+			// Location/Look Around case
+			case 'LOCATION':
+			case 'LOOK AROUND':
+				$("<p>You are at " + currentLocation + "</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+			break;
+			
+			// Go to location Cases
+				//Castle
+				case 'GO TO THE CASTLE':
+				case 'CASTLE':
+				case 'GO TO CASTLE':
+					currentLocation = 'The Castle';
+					beenToCastle = true;
+					$("<p>You've decided to go to the Castle!</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+				break;
+				//end Castle
 
-		    
+				//Market
+				case 'GO TO MARKET':
+				case 'MARKET':
+				case 'GO MARKET':
+					currentLocation = 'The Market';
+					beenToMarket = true;
+
+					$("<p>Good choice! Once you get to the market, you'll be close to the Castle. There will be many things available to help you prepare to sneak inside and search for the Princess (or Prince if player is female). The Guards allow you to pass, but not before searching your cart for any valuable items.</p> <p>As the guards start searching the back of your cart, you look down and see the spot where you hid your knife and your money pouch. You only have a few seconds to take one and hide it in your cloak. If the guards notice, they'll definitely take both of them, or do something worse. Should you try and smuggle one or hope they don't find the hidding place in your cart?</p> <p>Type Smuggle or Wait to make your decision</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+				break;
+				default:
+					notKnown();
+
+			resetTextBox();
 
 
-		//help
-		if (input === "help") {
-			$("#message_help").clone().insertBefore("#placeholder").fadeIn(2000);
-		}
-		//
+		} // end of first input Switch
+	}//end of not HELP if
+	// switch(input){
+								
+				
+	// 			if(beenToMarket){
+	// 				console.log("beenToMarket: " + beenToMarket);
+	// 				console.log("input: " + input);
+	// 			}
+				
+				
 
 
-		//take commands
-		if (input === "take sword" && currentLocation == "nCorridor") {
-			sword = true;
-			$("<p>You picked up the sword.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-		}
 
-		else if (input === "take sword" && currentLocation != "nCorridor") {
-			$("<p>There is no sword here!</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-		}
-		// end take commands
 
-		//default response
-		else {
-			$("<p>I do not understand " + "'" + input + "'" + ".</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-		}
-		//
-
-		// go commands
-		if (input === "go west" && currentLocation === "nCorridor") {
-			currentLocation = "Wcorridor"
-			$("<p>You are now in the North Corridor.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-		}
-
-		else if (input === "go west" && currentLocation != "nCorridor"){
-			$("<p>You can't go that way.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-		}
-
-		//inventory
-
-		// else if (input === "inventory") {
-		// 	//sword
-		// 	if (sword === true) {
-		// 		swrd = "Sword <br />"
-		// 	}
-		// 	else {
-		// 		swrd = "";
-		// 	}
-		// 	//end sword
-		// }
-		// else {
-		// 	$('<p>Inventory:<br />' + swrd + 'more items' + '</p>').insertBefore("#placeholder").fadeIn(1000);
-		// }
+	
 
 
 	});//end "form" submit function
-	
-	//resets text box
-	$("#command_line").val("");
-	//
 	
 });
 
