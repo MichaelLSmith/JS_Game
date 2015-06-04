@@ -103,8 +103,16 @@ $(document).ready(function(){
 				waited = true;
 				if(currentLocation === 'The Market'){
 				$("<p>You choose to wait. You watch the guards walk around your cart, poking and prodding as they go. </p>").insertBefore("#placeholder").hide().fadeIn(2000);
-				guardsSearch();
-			}
+				// guardsSearch();
+				rollDie();
+				if(die <= 3){
+					$("<p>The Guards find the items and you lose them. But at least they allow you to continue. Let's hope you can sell the crops in your cart and get some more money. You continue your way to the Market. When you arrive there...What do you want to do?</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+				}
+				else if (die >3){
+						$("<p>Your patience pays off. The guards don't find your items. They let you pass with both the knife and your money. You continue your way to the Market. When you arrive there...What do you want to do?</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+				}
+				}// if currentlocation === market	
+			
 				else {
 					noCanDo();
 				}
@@ -135,6 +143,10 @@ $(document).ready(function(){
 				return check = 'LOCATION';
 			}
 
+			function isDefault () {
+				$("<p>I do not understand " + "'" + command + "'" + ".</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+			}
+
 			var checks = {
 				'GO TO MARKET': isMarket,
 				'MARKET': isMarket,
@@ -149,29 +161,31 @@ $(document).ready(function(){
 				'SMUGGLE': isSmuggle,
 				'WAIT': isWait,
 				'SELL CROPS': isSellCrops,
+				'default': isDefault,
 			};
 	//console.log(checks[command]);
-	return checks[command]();
+	return (checks[command] || checks['default'] ());
 }
-var check = checkInput(input);
-console.log("check= " + check);
+checkInput(input);
+//var check = checkInput(input);
+//console.log("check= " + check);
 
 //Actions outside of main function - used for secondary or non-input driven events
 //This uses the check variable which is set to equal the last input value. I can't use
 //input again because it would run the main function again.
 
 	//Do Guards Find Knife and Money?
-	function guardsSearch(){
-		//if(check === 'WAIT'){
+	// function guardsSearch(){
+	// 	//if(check === 'WAIT'){
 
-			rollDie();
-			if(die <= 3){
-				$("<p>The Guards find the items and you lose them. But at least they allow you to continue. Let's hope you can sell the crops in your cart and get some more money. You continue your way to the Market. When you arrive there...What do you want to do?</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-			}
-			else if (die >3){
-					$("<p>Your patience pays off. The guards don't find your items. They let you pass with both the knife and your money. You continue your way to the Market. When you arrive there...What do you want to do?</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-			}
-		}
+	// 		rollDie();
+	// 		if(die <= 3){
+	// 			$("<p>The Guards find the items and you lose them. But at least they allow you to continue. Let's hope you can sell the crops in your cart and get some more money. You continue your way to the Market. When you arrive there...What do you want to do?</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+	// 		}
+	// 		else if (die >3){
+	// 				$("<p>Your patience pays off. The guards don't find your items. They let you pass with both the knife and your money. You continue your way to the Market. When you arrive there...What do you want to do?</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+	// 		}
+	// 	}
 	
 
 
