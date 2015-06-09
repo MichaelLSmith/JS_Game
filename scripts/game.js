@@ -35,7 +35,6 @@ var currentLocation = "The checkpoint";
 	function rollDie() {	 
 		die = Math.floor(Math.random()*6 + 1);
 		console.log("You rolled a "+die);
-		 die;
 	}
 
 //no can do
@@ -153,7 +152,7 @@ $(document).ready(function(){
 //start Bribe				
 			function isBribe (){
 				$("<p>The guards will only take money in the King's Currency. Of course these uppity guards would only take that. Nobody actually uses it except those who care about status. You can't remember if you've brought any coins in the King's Currency. You check your money pouch and don't find any. You have a hidden stash under the taurpaulin covering your cart. You search through there and don't find any either. The guards look annoyed. They don't let you pass and take all of your money. You return home without any money or your beloved. You need another plan.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-				check = 'BRIBE'
+				check = 'BRIBE';
 			}
 //end Bribe
 
@@ -163,8 +162,9 @@ $(document).ready(function(){
 				$("<p>'I...um...' you stammer. You turn around and start back towards home. You know they are suspicious of you.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
 				 
 				rollDie();
-				if (die === <= 5){
-				}	$("<p>You start walking slowly away from the guards. You look over your shoulder and see them staring after you. One of them seems to move towards you, but in the end they just watch you walk out of sight. You arrive home and will need another plan to rescue your beloved.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+				if (die <= 5){
+					$("<p>You start walking slowly away from the guards. You look over your shoulder and see them staring after you. One of them seems to move towards you, but in the end they just watch you walk out of sight. You arrive home and will need another plan to rescue your beloved.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
+				}
 				else if (die > 5){
 					$("<p>You start walking slowly away from the guards. You look over your shoulder and see them staring after you. One of them seems to move towards you. He stops briefly, looking at the other guard who points at you. The first guard runs quickly at you. Before you know it, he's pulled his sword out. You die instantly. Game Over!</p>").insertBefore("#placeholder").hide().fadeIn(2000);
 				}
