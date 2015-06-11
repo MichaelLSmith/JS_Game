@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<script type="text/javascript" src="scripts/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="scripts/game.js"></script>
+<meta name="description" content="Testing copy of Game">
+<title></title>
+<link rel="stylesheet" type="text/css" href="main.css">
+<script type="text/javascript" src="jquery-2.1.4.js"></script>
+<script type="text/javascript" src="form.js"></script>
 	
 </head>
 <body>
 
 <div id="console">
-	<p>Welcome to the game! Type "Help" at any time for a list of commands. Type Location or Look Around to get more information about where you are and what you can do.</p>
+	<p>Welcome to the game! </p>
+
+	<p>What is your name?</p>
+
+<div id="character_placeholder"></div>
+
+	<form id="player" onsubmit="return false;">
+	<input type="text" size="20" autofocus="autofocus" id="player_enter">
+	</form>
+
+</div>
+
+<div id="game_start" style="display:none">
+	
+	<p>You are ready to start the game. Type "Help" at any time for a list of commands. Type Location or Look Around to get more information about where you are and what you can do.</p>
 
 	<p>Lord Konniving kidnapped your bethrothed and you must save her (turn into gender variable)! You have disguised yourself as a farmer to go to the town to find out where he is hiding her. You are pulling a cart behind filled with crops. You are surprised to see a guard at the town checkpoint. Lord Konniving must be looking for you. He demands to know your destination.</p>
 	
@@ -43,10 +58,11 @@
 
 	<div id="placeholder"></div>
 
+<div id="main_form" style="display:none;">
 	<form onsubmit="return false;">
 	<input type="text" size="50" autofocus="autofocus" id="command_line">
 	</form>
-
+</div>
 
 </body>
 </html>

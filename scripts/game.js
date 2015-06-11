@@ -27,7 +27,12 @@ The Market
 
 //Global Variables location
 var currentLocation = "The checkpoint";
-
+var characterName = false;
+var characterGender = false;
+var belovedName = false;
+var belovedGender = false;
+var characterSet = false;
+var counter = 0;
 	
 //reusable Functions
   //Roll Die
@@ -44,12 +49,51 @@ var currentLocation = "The checkpoint";
 		}
 
 $(document).ready(function(){
-	$("form").submit(function(){
-		$("#console").fadeIn(2000);
+	$("#console").fadeIn(2000);
+	
+	$("#player").submit(function(){
+		player = $("#player_enter").val();
+		console.log('player: ' + player);
+
+	if(counter === 0){
+		characterName = player;
+		console.log("characterName: " + characterName);
+		$("<p>Welcome " + characterName + ". Are you Male or Female?</p>").insertBefore("#character_placeholder").hide().fadeIn(2000);
+		//player = '';
+		//console.log('player: ' + player);
+	}
+
+	if(counter === 1){
+		characterGender = player;
+		console.log("characterGender: " + characterGender);
+		$("<p>In this game, you will be trying to save your beloved from an evil Lord. What is their name?</p>").insertBefore("#character_placeholder").hide().fadeIn(2000);
+  	}
+
+	if(counter === 2){
+	   	belovedName = player;
+			console.log("belovedName: " + belovedName);
+		 $("<p>" + belovedName + " awaits you. Are they Male or Female?</p>" ).insertBefore("#character_placeholder").hide().fadeIn(2000);
+//+ "<p>
+	}
+
+	if(counter === 3) {
+		characterSet = false;
+				$("<p>Okay " + characterName + " it's time to save " + belovedName +"</p>").insertBefore("#character_placeholder").hide().fadeIn(2000);
+		belovedGender = player;
+		console.log("player = belovedGender: " + belovedGender);
+		$("#player").hide();
+		$("#main_form").fadeIn(2000);
+		$("#game_start").fadeIn(2000);
+		
+	}
+			counter ++;
+		$("#player_enter").val("");
+
+	
+if(counter >3){
+	$("#main_form").submit(function(){
 		input = $("#command_line").val().toUpperCase();
 		//console.log('input: ' + input);
-
-
 
 		function checkInput (command) {
 			var check;
@@ -216,8 +260,8 @@ $(document).ready(function(){
 			};
 			//console.log(checks[command]);
 			 (checks[command] || checks['default']) () ;
-			//
-		}
+
+		}//end function checkInput
 
 
 
@@ -226,5 +270,8 @@ console.log("input:" + input);
 var check = checkInput(input);
 console.log('check: ' + check);
 $("#command_line").val("");
-	}); // end submit function
+	
+    	}); // end submit function
+    }//end if counter
+  });//end character sumbmit function
 });//end .ready
