@@ -78,7 +78,7 @@ $(document).ready(function(){
 
 	if(counter === 3) {
 		characterSet = false;
-				$("<p>Okay " + characterName + " it's time to save " + belovedName +"</p>").insertBefore("#character_placeholder").hide().fadeIn(2000);
+				$("<p>Okay " + characterName + " it's time to save !" + belovedName +"</p>").insertBefore("#character_placeholder").hide().fadeIn(2000);
 		belovedGender = player;
 		console.log("player = belovedGender: " + belovedGender);
 		$("#player").hide();
