@@ -42,11 +42,12 @@ var counter = 0;
 		console.log("You rolled a "+die);
 	}
 
-//no can do
 	//you can't do that
     function noCanDo() {
 			$("<p>You can't do that right now. Type 'Help' for a list of actions or 'Location' to see where you are.</p>").insertBefore("#placeholder").hide().fadeIn(2000);
-		}
+	}
+
+//Game Begins
 
 $(document).ready(function(){
 	$("#console").fadeIn(2000);
@@ -78,7 +79,7 @@ $(document).ready(function(){
 
 	if(counter === 3) {
 		characterSet = false;
-				$("<p>Okay " + characterName + " it's time to save !" + belovedName +"</p>").insertBefore("#character_placeholder").hide().fadeIn(2000);
+				$("<p>Okay " + characterName + " it's time to save" + belovedName +"!</p>").insertBefore("#character_placeholder").hide().fadeIn(2000);
 		belovedGender = player;
 		console.log("player = belovedGender: " + belovedGender);
 		$("#player").hide();
